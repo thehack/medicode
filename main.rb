@@ -23,8 +23,14 @@ helpers do
 end
 
 get '/' do
-  @title = "Medicode: Life-saving information when seconds count. splash-page, sign-up or register interest."
-  erb :index
+	@title = "Medicode: Life-saving information when seconds count. splash-page, sign-up or register interest."
+	erb :index, :layout => false
 end
+
+get '/profile/new' do
+	@title = "Create A Medical Profile"
+	erb :profile_new
+end
+
 
 disable :logging #This was causing everything to output twice to console.

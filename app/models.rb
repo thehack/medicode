@@ -18,7 +18,13 @@ class Company
   has n, :users
 end
 
-Class User
+class User
   include DataMapper::Resource
+  property :id, Serial
+  property :first_name, String
+  property :created_on, DateTime
+  property :updated_at, DateTime
+  belongs_to :company
 end
+
 DataMapper.auto_upgrade!

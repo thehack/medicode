@@ -1,0 +1,14 @@
+.logo img {margin: 10px 0 5px 10%;}
+.header {background-color: #d0d0d8;border-bottom: 3px solid #837f80;}
+.header .input {margin-top:50px; width:100%;}
+.header button {margin-top:50px;}
+.header h1 {margin: 50px 0px 10px 0px; vertical-align: bottom;}
+.signup div {text-align:right;color:#1885ca;}
+.input {width:100%;}
+.footer {min-height:120px;background-color: #d0d0d8;border-top: 3px solid #837f80;}
+.login {text-align:right;}
+body {font-family: 'Orbitron', sans-serif;
+h1 {font-weight:100;margin-top:15px;}
+.input  {font-family: 'Orbitron', sans-serif;}
+hr {height:2px;}
+p .subtitle {font-family: 'Orbitron', sans-serif;font-size:20px;font-weight:normal;font-stretch:ultra-condensed;}
