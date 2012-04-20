@@ -32,5 +32,14 @@ get '/profile/new' do
 	erb :profile_new
 end
 
+get '/profile/edit' do
+  @title = "Edit Profile"
+  erb :profile_edit
+end
+
+get '/admin' do
+  @title = "Medicode Administration Panel"
+  erb :admin
+end
 
 disable :logging #This was causing everything to output twice to console.

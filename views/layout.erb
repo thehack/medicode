@@ -21,20 +21,25 @@
     <![endif]-->
 </head>
 <body>
-  <div class="container">
-    <div class="row header">
-      <div class="span10">
-        <h1><%=h @title %></h1>
+  <div class="container header">
+    <div class="row">
+      <div class="span11">
+          <h1><%=h @title %></h1>
       </div>
-      <div class="span2 logo">
-        <img src="/img/logo.png" height="100" alt="medicode" />
+        <div class="span1 logo">
+          <div class="small">
+            <img src="/img/logo.png" width="56" alt="medicode" />MEDICODE
+          </div>
+        </div>
       </div>
     </div>
   </div>
   <%= yield %>
-    <div class="container">
-      <div class="row footer">
+  <div class="container footer">
+    <div class="row">
+      <div class="span12 footer">
       </div>
     </div>
+  </div>
 </body>
 </html>
