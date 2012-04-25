@@ -1,38 +1,57 @@
 <style type="text/css">
-.mug {height:200px;}
 </style>
 <br>
 <div class="container">
 	<div class="row">
-		<div class="span7">
+		<div class="span8">
 			<div class="row">
 				<div class="span2">
 					<div class="grey outline mug">UPLOAD IMAGE</div>
 				</div>
-				<div class="span5">
-					<table>
-						<tr>
-							<td>First Name</td>
-							<td><input id="firstName" name="firstName" type="text" /></td>
-						</tr>
-						<tr>
-							<td>Last Name</td>
-							<td><input id="lastName" name="lastName" type="text" />
-							</td>
-						</tr>
-						<tr>
-							<td>D.O.B</td>
-							<td><input id="dob" name="dob" type="text" />
-							</td>
-						</tr>
-					</table>
+				<div class="span2 inputlabel">
+					First Name<br><br>LastName<br><br>D.O.B
+				</div>
+				<div class="span4">
+					<input id="firstName" name="firstName" type="text" />
+					<br>
+					<br>
+					<input id="lastName" name="lastName" type="text" />
+					<br>
+					<br>
+					<input id="dob" name="dob" type="text" />
 				</div>
 			</div>
-			<div class=></div>
+			<div class="row">
+				<div class="span4 labelAbove">
+					<br>
+					<h4>EMERGENCY CONTACT</h4>
+					<br>
+					<p>FIRST NAME</p>
+					<input id="contactFirst" name="contactFirst" type="text" />
+					<p>CONTACT NUMBER 1</p>
+					<input id="contactNumer1" name="contactNumber1" type="text" />
+					<p>MEDICAL HISTORY</p>
+					<textarea id="medicalHistory" name="medicalHistory"></textarea>
+				</div>
+				<div class="span4 labelAbove">
+					<br>
+					<br>
+					<br>
+					<p>LAST NAME</p>
+					<input id="contactLast" name="contactLast" type="text" />
+					<p>CONTACT NUMBER 1</p>
+					<input id="contactNumer2" name="contactNumber2" type="text" />
+
+					<p>BLOOD TYPE</p>
+					<input id="bloodType" name="bloodType" type="text" />
+					<p>ALLERGIES</p>
+					<textarea id="allergies" name="allergies"></textarea>		
+				</div>
+			</div>
 		</div>
-		<div class="span5">
-			<div class="grey outline">
-				<h2><center>Emergency Services Only</center></h2>
+		<div class="span4">
+			<div class="grey outline eso">
+				<h2><center>EMERGENCY SERVICES ONLY</center></h2>
 			</div>
 		</div>
 	</div>
