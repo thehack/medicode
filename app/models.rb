@@ -22,6 +22,15 @@ class User
   include DataMapper::Resource
   property :id, Serial
   property :first_name, String
+  property :last_name, String
+  property :dob, DateTime
+  property :contact_first, String
+  property :contact_last, String
+  property :contact_number_1, Integer
+  property :contact_number_2, Integer
+  property :medical_history, Text
+  property :blood_type, String
+  property :allergies, Text
   property :created_on, DateTime
   property :updated_at, DateTime
   belongs_to :company

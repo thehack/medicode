@@ -1,8 +1,13 @@
-.logo {text-align:right;}
-.small {margin-right:10px;text-align:center;}
+/* general */
 .header {background-color: #d0d0d8;border-bottom: 3px solid #837f80;}
 .footer {min-height:120px;background-color: #d0d0d8;border-top: 3px solid #837f80;}
+.outline {border: 1px solid #1885ca;}
+.logo {text-align:right;margin: 5px 5px 5px 25px;}
 
+/* root */
+.lgLogo {margin:5px 0 5px 40px;}
+.txtOnly {margin-top:10px;margin-left:20px;}
+.small {margin-right:10px;}
 .header .input {margin-top:50px; width:100%;}
 .header button {margin-top:50px;}
 .header h1 {margin: 0 0 10 0px; vertical-align: bottom;}
@@ -16,9 +21,7 @@ hr {height:2px;}
 p .subtitle {font-family: 'Orbitron', sans-serif;font-size:20px;font-weight:normal;font-stretch:ultra-condensed;}
 
 /* profile */
-
 .grey {background-color: #d0d0d8;}
-.outline {border: 1px solid #1885ca;}
 .mug {height:150px;}
 .eso {min-height:500px;}
 input, textarea {width:97%;}
@@ -26,3 +29,10 @@ h2 {font-size:20px;}
 .inputlabel{text-align:right;}
 .labelAbove p{margin-bottom:0px;font-family: 'Orbitron', sans-serif;color:#1885ca;}
 #medicalHistory {height:250px;}
+#allergies{height:194px;}
+.whiteBox {margin:5% 5% 5% 5%;min-height:200px;border:1px solid white;}
+.bigBox {margin:5% 5% 5% 5%;min-height:200px;
+			border:1px solid white;
+			width:85%;background-color: #dedee5;
+			font-family: 'Orbitron', sans-serif;text-align:left;
+		}
