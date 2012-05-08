@@ -3,26 +3,22 @@ DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/medicode.sqlite3")
 class Company
   include DataMapper::Resource
   property :id, Serial
-  property :administrator, String
-  property :email, String
-  property :name, String, :required => true
-  property :logo, String
-  property :color1, String
-  property :color2, String
-  property :color3, String
-  property :color4, String
-  property :color5, String
-  property :color6, String
-  property :created_on, DateTime
-  property :updated_at, DateTime
-  has n, :users
+  property :company_name, String, :required => true
+  property :first_name, String, :required => true
+  property :last_name, String, :required => true
+  property :email, String, :required => true
+  property :crypted_password, String, :required => true
+  property :salt, String, :required => true
+  property :created_on, DateTime, :required => true
+  property :updated_at, DateTime, :required => true
+  has n, :profiles
 end
 
-class User
+class Profile
   include DataMapper::Resource
   property :id, Serial
-  property :first_name, String
-  property :last_name, String
+  property :first_name, String, :required => true
+  property :last_name, String, :required => true
   property :dob, DateTime
   property :contact_first, String
   property :contact_last, String
@@ -36,4 +32,19 @@ class User
   belongs_to :company
 end
 
+# scaffold a few records...
+companies = [{
+  :company_name => "Oceanic Resources",
+  :first_name => "Tex",
+  :last_name => "",
+  :email => "",
+  :crypted_password => "",
+  :salt => "",
+  :created_on => Time.now,
+  :updated_at => Time.now,
+  },{
+
+    },{
+
+      }]
 DataMapper.auto_upgrade!

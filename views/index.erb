@@ -35,11 +35,38 @@
 				}
 			});
 		});
+		$('#signUp').click( function() {
+			var password1 = $('#password1').val();
+			var password2 = $('#password2').val();
+			if( password1 == password2) {
+				$.ajax({
+				  type: 'POST',
+				  url: '/signup',
+				  data: {	companyName: $('#companyName').val(), 
+							firstName: $('#firstName').val(),
+							lastName: $('#lastName').val(),
+							email: $('#email').val(),
+							password: password1
+						},
+				  complete: function() {window.location='/admin';}
+				});
+			} else {
+				alert("password fields do not match");
+			}
+		});
+
+		$('#logIn').click( function() {
+			$.ajax({
+				type: 'POST',
+				url: '/login',
+				data: {	loginEmail: $('#loginEmail').val(), loginPassword: $('#loginPassword').val() },
+				complete: function() { window.location='/admin'; } 
+			});
+		});
 	});
   </script>
 </head>
 <body>
-
 	<div class="container">
 		<div class="row">
 			<div class="span12 header">
@@ -54,7 +81,7 @@
 						<input class="input outline" id="loginPassword" type="text"/>
 					</div>
 					<div class="span2 login">
-						<button href="" class="btn btn-inverse outline">Log-in</button>
+						<button href="#" id="logIn" class="btn btn-inverse outline">Log-in</button>
 					</div>
 				</div>
 			</div>
@@ -76,42 +103,41 @@
 		<div class="row signup">
 			<div class="span2 offset6">Company
 			</div>
-			<div class="span3"><input class="input" type="text" />
+			<div class="span3"><input id="companyName" class="input" type="text" />
 			</div>
 		</div>
 		<div class="row signup">
 			<div class="span2 offset6">First Name
 			</div>
-			<div class="span3"><input class="input" type="text" />
+			<div class="span3"><input id="firstName" class="input" type="text" />
 			</div>
 		</div>
 		<div class="row signup">
 			<div class="span2 offset6">Last Name
 			</div>
-			<div class="span3"><input class="input" type="text" />
+			<div class="span3"><input id="lastName" class="input" type="text" />
 			</div>
 		</div>
 		<div class="row signup">
 			<div class="span2 offset6">Email
 			</div>
-			<div class="span3"><input class="input" name="email" id="email" type="text" />
+			<div class="span3"><input id="email" class="input" name="email" id="email" type="text" />
 			</div>
 		</div>
 		<div class="row signup">
 			<div class="span2 offset6">Password
 			</div>
-			<div class="span3"><input class="input" type="text" />
+			<div class="span3"><input id="password1" class="input" type="password" />
 			</div>
 		</div>
 		<div class="row signup">
 			<div class="span2 offset6">Re-enter Password
 			</div>
-			<div class="span3"><input class="input" type="text" />
+			<div class="span3"><input id="password2" class="input" type="password" />
 			<br>
 			<br>
-			<button href="" class="btn btn-inverse outline">Sign-Up</button>
+			<button href="#" id="signUp" class="btn btn-inverse outline">Sign-Up</button>
 			</div>
-
 		</div>
 		<div class="row">
 			<div class="span5 offset6">
@@ -123,13 +149,11 @@
 		<br>
 		<br>
 		<br>
-
 		<div class="row">
 			<div class="span12 footer">&nbsp;
 			</div>
 		</div>
 	</div>
-
 </body>
 </html>
 

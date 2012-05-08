@@ -7,9 +7,31 @@ enable :sessions
 
 Dir['./app/**/*.rb'].each{ |f| require f } #Require controllers and models in app folder
 
-# a good place for authentication
+# Authentication
 before do
 
+  def logged_in?
+    client_id = request.cookies["salt"]
+    if client_id.nil?
+      return false
+    else
+      @company = Company.first(:salt => client_id) #if logged in views have access to @company.
+      return true
+    end
+  end
+
+  def authenticate!
+    unless logged_in?
+      flash[:notice] = "You must be a logged-in administrator to do that!"    
+      redirect "/"
+    end
+  end
+
+end
+
+# and DRY protected access
+before /^.*(new|edit|create|admin|destroy|upload|show)$/ do
+  authenticate!
 end
 
 helpers do
