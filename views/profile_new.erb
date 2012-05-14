@@ -19,6 +19,27 @@
 					<br>
 					<br>
 					<input id="dob" name="dob" type="text" />
+					<br>
+					<br>
+					<div class="btn-group" >
+					  <a class="btn dropdown-toggle outline" data-toggle="dropdown" href="#">
+					  	<input id="bloodBox" width="10" type="text" value="****" /> Blood Type
+					    <span class="caret"></span>
+					  </a>
+					  <ul class="dropdown-menu">
+					    <li><a class="bloodType" href="#">A1+</a></li>
+					    <li><a class="bloodType" href="#">A1B-</a></li> 
+					    <li><a class="bloodType" href="#">A1B+</a></li> 
+					    <li><a class="bloodType" href="#">A2+</a></li> 
+					    <li><a class="bloodType" href="#">A2-</a></li> 
+					    <li><a class="bloodType" href="#">A2B+</a></li> 
+					    <li><a class="bloodType" href="#">A2B-</a></li> 
+					    <li><a class="bloodType" href="#">B-</a></li> 
+					    <li><a class="bloodType" href="#">B+</a></li> 
+					    <li><a class="bloodType" href="#">O+</a></li> 
+					    <li><a class="bloodType" href="#">O-</a></li>
+					  </ul>
+					</div>
 				</div>
 			</div>
 			<div class="row">
@@ -41,8 +62,7 @@
 					<input id="contactLast" name="contactLast" type="text" />
 					<p>CONTACT NUMBER 2</p>
 					<input id="contactNumber2" name="contactNumber2" type="text" />
-					<p>BLOOD TYPE</p>
-					<input id="bloodType" name="bloodType" type="text" />
+					<br>
 					<p>ALLERGIES</p>
 					<textarea id="allergies" name="allergies"></textarea>		
 				</div>
@@ -60,3 +80,9 @@
 	</div>
 </div>
 <br>
+<script type="text/javascript">
+$('.bloodType').click(
+	function() {
+		$('#bloodBox').val($(this).text());
+	});
+</script>
