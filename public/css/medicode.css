@@ -28,12 +28,10 @@ input, textarea {width:97%;}
 h2 {font-size:20px;}
 .inputlabel{text-align:right;line-height:28px;}
 .labelAbove p{margin-bottom:0px;font-family: 'Orbitron', sans-serif;color:#1885ca;}
-#medicalHistory {height:250px;}
-#allergies{height:194px;}
+#allergies, #medicalHistory {height:194px;}
 .whiteBox {margin:5% 5% 5% 5%;min-height:200px;border:1px solid white;}
 .bigBox {margin:5% 5% 5% 5%;min-height:200px;
 			border:1px solid white;
 			width:85%;background-color: #dedee5;
-			font-family: 'Orbitron', sans-serif;text-align:left;
-		}
+			font-family: 'Orbitron', sans-serif;text-align:left;}
 #bloodBox {width:30px;max-height:10px;margin-bottom:0px;}

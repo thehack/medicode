@@ -47,7 +47,7 @@
 					<br>
 					<h4>EMERGENCY CONTACT</h4>
 					<br>
-					<p>FIRST NAME</p>
+					<p>CONTACT FIRST NAME</p>
 					<input id="contactFirst" name="contactFirst" type="text" />
 					<p>CONTACT NUMBER 1</p>
 					<input id="contactNumer1" name="contactNumber1" type="text" />
@@ -58,7 +58,7 @@
 					<br>
 					<br>
 					<br>
-					<p>LAST NAME</p>
+					<p>CONTACT LAST NAME</p>
 					<input id="contactLast" name="contactLast" type="text" />
 					<p>CONTACT NUMBER 2</p>
 					<input id="contactNumber2" name="contactNumber2" type="text" />
@@ -71,10 +71,14 @@
 		<div class="span4">
 			<div class="grey outline eso">
 				<h2><center>EMERGENCY SERVICES ONLY</center></h2>
-				<textarea class="bigBox">Upload Images
+				<textarea id="uploadImages" class="bigBox">Upload Images
 				</textarea>
-				<textarea class="bigBox">Medical Notes
+				<textarea id="medicalNotes" class="bigBox">Medical Notes
 				</textarea>
+			</div>
+			<br>
+			<div class="btn-group pull-right">
+				<a id="save" class="btn btn-primary btn-large" href="#">Save Record</a>
 			</div>
 		</div>
 	</div>
@@ -85,4 +89,24 @@ $('.bloodType').click(
 	function() {
 		$('#bloodBox').val($(this).text());
 	});
+		$('#save').click( function() {
+			$.ajax({
+			  type: 'POST',
+			  url: '/profile/create',
+			  data: {	firstName: $('#firstName').val(), 
+						lastName: $('#lastName').val(),
+						dob: $('#dob').val(),
+						bloodType: $('#bloodBox').val(),
+						contactFirst: $('#contactFirst').val(),
+						contactLast: $('#contactLast').val(),
+						contactNumber1: $('#contactNumber1').val(),
+						contactNumber2: $('#contactNumber2').val(),
+						medicalHistory: $('#medicalHistory').val(),
+						allergies: $('#allergies').val(),
+						medicalNotes: $('#medicalNotes').val()
+					},
+			  complete: function() {window.location='/admin';}
+			});
+
+		});
 </script>

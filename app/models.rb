@@ -19,7 +19,7 @@ class Profile
   property :id, Serial
   property :first_name, String, :required => true
   property :last_name, String, :required => true
-  property :dob, DateTime
+  property :dob, String
   property :contact_first, String
   property :contact_last, String
   property :contact_number_1, Integer
@@ -27,24 +27,10 @@ class Profile
   property :medical_history, Text
   property :blood_type, String
   property :allergies, Text
+  property :medical_notes, Text
   property :created_on, DateTime
   property :updated_at, DateTime
   belongs_to :company
 end
 
-# scaffold a few records...
-companies = [{
-  :company_name => "Oceanic Resources",
-  :first_name => "Tex",
-  :last_name => "",
-  :email => "",
-  :crypted_password => "",
-  :salt => "",
-  :created_on => Time.now,
-  :updated_at => Time.now,
-  },{
-
-    },{
-
-      }]
 DataMapper.auto_upgrade!

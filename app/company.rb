@@ -1,4 +1,10 @@
 # User Authentication Views
+
+get '/admin' do
+  @title = "Medicode Administration Panel"
+  erb :admin
+end
+
 post '/signup' do
     password = params[:password]
     email = params[:email]
@@ -33,3 +39,4 @@ post '/login' do
     flash[:notice] = "Access Denied: Incorrect Password."  
   end
 end
+

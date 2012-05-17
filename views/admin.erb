@@ -1,11 +1,42 @@
 <div class="container">
 	<br>
 	<div class="row">
-		<div class="span3 grey mug">
-
+		<div class="span3">
+			<div class="grey mug">
+			</div>
+		<br>
+		<div class="btn-group">
+			<a class="btn btn-primary btn-large" href="/profile/new">Create New Record</a>
 		</div>
-		<div class="span9">
+		</div>
 
+
+		<div class="span9">
+			<h1>Medical Profiles</h1>
+			<table>
+				<tr>
+					<td>ID</td>
+					<td>FIRST NAME&nbsp;&nbsp;</td>
+					<td>LAST NAME&nbsp;&nbsp;</td>
+					<td>Record Created&nbsp;&nbsp;</td>
+					<td>ACTIONS</td>
+				</tr>
+				<% @company.profiles.each do |profile| %>
+				<tr>
+					<td><%=h profile.id %></td>
+					<td><%=h profile.first_name %></td>
+					<td><%=h profile.last_name %></td>
+					<td><%=h profile.created_on.strftime(" %B %d, %Y") %></td>
+					<td>
+						<div class="btn-group">
+						  <a class="btn">view</a>
+						  <a class="btn">update</a>
+						  <a class="btn">destroy</a>
+						</div>
+					</td>
+				</tr>
+				<% end %>
+			</table>
 		</div>
 	</div>
 	<br>
