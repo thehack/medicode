@@ -136,7 +136,11 @@
 			<div class="span3"><input id="password2" class="input" type="password" />
 			<br>
 			<br>
-			<button data-toggle="modal" href="#myModal" class="btn btn-inverse outline">Sign-Up</button>
+				<div class="bt-group">
+					<button data-toggle="modal" href="#learnMore" class="btn btn-info btn-large outline">Learn More</button> 
+					<button data-toggle="modal" href="#myModal" class="btn btn-primary btn-large outline">Sign-Up</button>
+				</div>
+ 
 			</div>
 		</div>
 		<div class="row">
@@ -165,6 +169,19 @@
   		<div class="modal-footer">
     		<a href="#" data-dismiss="modal" class="btn">Deny</a>
     		<a href="#" id="signUp" class="btn btn-primary">Accept</a>
+  		</div>
+	</div>
+		<div class="modal" id="learnMore" style="display:none;">
+  		<div class="modal-header">
+    		<a class="close" data-dismiss="modal">×</a>
+    		<h3>About Medicode</h3>
+  		</div>
+  		<div class="modal-body">
+    		<p>Accidents are sometimes unavoidable. But in emergencies the difference between life & death COULD depend on having medical information immediately available. Medicode is a personal online medical profile, that can be accessed, edited and shared between different emergency services. Medicode has the capability to assist in saving lives through clearer, better-documented and more immediate communication, enhanced through intuitive usability and consistency on important information.</p>
+    		<p>The technologies proposed are simple.  For example one version proposes using QR coding (other methods could also be explored). The QR code will hold the URL to your personal medical profile. In a typical real life scenario, the paramedic staff could scan the QR code using a smart phone or tablet and immediately link to a patients medical and personal details, uploaded and updated from a central database The paramedic can add information, images, times, locations and other important data, providing a current patient status.  A GPS system would aloud live tracking and would enhance in finding the closet Medical Center, another enhanced feature I would be looking into is the provision of an audio recording function to capture a situation at the time of the event. They may add information to the profile such as a photo of injuries on casualty or written documentation however they can only add and not edit existing verified data.  They could then forward this information to the allocated hospital administration staff saving time and educating the medical team with vital information on the casualty in advance of the patient’s arrival.</p>
+  		</div>
+  		<div class="modal-footer">
+    		<a href="#" data-dismiss="modal" class="btn">Continue</a>
   		</div>
 	</div>
 </body>
