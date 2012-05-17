@@ -136,7 +136,7 @@
 			<div class="span3"><input id="password2" class="input" type="password" />
 			<br>
 			<br>
-			<button href="#" id="signUp" class="btn btn-inverse outline">Sign-Up</button>
+			<button data-toggle="modal" href="#myModal" class="btn btn-inverse outline">Sign-Up</button>
 			</div>
 		</div>
 		<div class="row">
@@ -153,6 +153,19 @@
 			<div class="span12 footer">&nbsp;
 			</div>
 		</div>
+	</div>
+	<div class="modal" id="myModal" style="display:none;">
+  		<div class="modal-header">
+    		<a class="close" data-dismiss="modal">×</a>
+    		<h3>Terms and Conditions</h3>
+  		</div>
+  		<div class="modal-body">
+    		<p>Medicode is in pre-launch stage, although our service is not yet available, it is possible to explore the site to get a feel for it and watch how it evolves. You agree to allow us to contact you (to let you know when we're ready for real signups, and you agree not to hold us liable for anything. We'll keep your email to ourselves and your password encrypted. This site uses cookies.</p>
+  		</div>
+  		<div class="modal-footer">
+    		<a href="#" data-dismiss="modal" class="btn">Deny</a>
+    		<a href="#" id="signUp" class="btn btn-primary">Accept</a>
+  		</div>
 	</div>
 </body>
 </html>

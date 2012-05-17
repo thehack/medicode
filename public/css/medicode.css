@@ -22,7 +22,7 @@ p .subtitle {font-family: 'Orbitron', sans-serif;font-size:20px;font-weight:norm
 
 /* profile */
 .grey {background-color: #d0d0d8;}
-.mug {height:150px;color:#fff;text-align:center;}
+.mug {height:150px;color:#fff;text-align:left;}
 .eso {min-height:500px;}
 input, textarea {width:97%;}
 h2 {font-size:20px;}
