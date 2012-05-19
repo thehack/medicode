@@ -24,7 +24,7 @@
   <div class="container header">
     <div class="row">
       <div class="span8">
-
+          <p><a id="logOut" class="btn btn-inverse" href="#">Log Out</a></p>
           <h1 class="headerTitle"><%=h @title %></h1>
       </div>
         <div class="span4">
@@ -42,5 +42,13 @@
       </div>
     </div>
   </div>
+  <script type="text/javascript">
+  $('#logout').click(
+    function() {
+      var date = new Date(1970,04, 05, 0,00,04).toUTCString();
+      document.cookie = 'salt = 0;path = /;expires = ' + date;
+      window.location= '/';
+    });
+  </script>
 </body>
 </html>
