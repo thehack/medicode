@@ -24,16 +24,16 @@
 					<td>ACTIONS</td>
 				</tr>
 				<% @company.profiles.each do |profile| %>
-				<tr>
+				<tr id="<%=h profile.id %>">
 					<td><%=h profile.id %></td>
 					<td><%=h profile.first_name %></td>
 					<td><%=h profile.last_name %></td>
 					<td><%=h profile.created_on.strftime(" %B %d, %Y") %></td>
 					<td>
 						<div class="btn-group">
-						  <a class="btn"><i class="icon-list-alt"></i> full record</a>
-						  <a class="btn"><i class="icon-qrcode"></i> badge</a>
-						  <a class="btn"><i class="icon-remove"></i> destroy</a>
+							<a class="btn"><i class="icon-qrcode"></i> badge</a>
+						 	<a class="btn"><i class="icon-list-alt"></i> full record</a>
+						 	<a class="btn profileDestroy" href='#' rel="<%=h profile.id%>"><i class="icon-remove"></i> destroy</a>
 						</div>
 					</td>
 				</tr>
@@ -43,3 +43,15 @@
 	</div>
 	<br>
 </div>
+<script type="text/javascript">
+	$('.profileDestroy').click(
+		function (){
+			var id = $(this).attr('rel').toString();
+			console.log('id is ' + id);
+			$.ajax({
+				type: 'post',
+				url: '/profile/' + id + '/destroy',
+				success: function () {$('#' + id).hide(); }
+			});
+		});
+</script>

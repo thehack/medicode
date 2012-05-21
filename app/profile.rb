@@ -33,5 +33,10 @@ post '/profile/create' do
 end
 
 post '/profile/:id/update' do
-	@title = ""
+	profile = Profile.get(params[:id])
+end
+
+post '/profile/:id/destroy' do
+	profile = Profile.get(params[:id].to_i)
+	profile.destroy
 end
