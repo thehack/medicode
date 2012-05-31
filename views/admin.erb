@@ -1,3 +1,5 @@
+<script type="text/javascript" src="/js/jquery.qrcode.min.js"></script>
+
 <div class="container">
 	<br>
 	<div class="row">
@@ -31,7 +33,7 @@
 					<td><%=h profile.created_on.strftime(" %B %d, %Y") %></td>
 					<td>
 						<div class="btn-group">
-							<a class="btn"><i class="icon-qrcode"></i> badge</a>
+							<a data-toggle="modal" rel="<%=h profile.id %>" href="#qrBadge" class="btn showBadge"><i class="icon-qrcode"></i> badge</a>
 						 	<a class="btn"><i class="icon-list-alt"></i> full record</a>
 						 	<a class="btn profileDestroy" href='#' rel="<%=h profile.id%>"><i class="icon-remove"></i> destroy</a>
 						</div>
@@ -43,9 +45,23 @@
 	</div>
 	<br>
 </div>
+
+<div class="modal" id="qrBadge" style="display:none;">
+	<div class="modal-header">
+		<a class="close" data-dismiss="modal">×</a>
+    	<h3>Badge</h3>
+  	</div>
+  	<div class="modal-body">
+  		<div id="qrcode">
+  		</div>
+  	</div>
+  	<div class="modal-footer">
+    		<a id="cont" href="#" data-dismiss="modal" class="btn">Continue</a>
+  	</div>
+</div>
 <script type="text/javascript">
 	$('.profileDestroy').click(
-		function (){
+		function(){
 			var id = $(this).attr('rel').toString();
 			console.log('id is ' + id);
 			$.ajax({
@@ -54,4 +70,14 @@
 				success: function () {$('#' + id).hide(); }
 			});
 		});
+	$('.showBadge').click(
+		function() {
+			var id = $(this).attr('rel');
+			$('#qrcode').qrcode({width: 64, height: 64, text: "http://medcode.me/profile/" + id + "/show"});
+		});
+	$('.close').click(
+		function() {$('#qrcode').html("")});
+	$('#cont').click(
+				function() {$('#qrcode').html("")});
+
 </script>
