@@ -1,10 +1,10 @@
 <script type="text/javascript" src="/js/jquery.qrcode.min.js"></script>
 
-<div class="container">
+<div class="container" style="min-height:500px;">
 	<br>
 	<div class="row">
 		<div class="span3">
-			<div class="grey mug">
+			<div class="grey center">
 				<h3><%=h @company.company_name %></h3>
 				<p><%=h @company.first_name %> <%=h @company.last_name %>, Administrator</p>
 			</div>
@@ -34,7 +34,7 @@
 					<td>
 						<div class="btn-group">
 							<a data-toggle="modal" rel="<%=h profile.id %>" href="#qrBadge" class="btn showBadge"><i class="icon-qrcode"></i> badge</a>
-						 	<a class="btn"><i class="icon-list-alt"></i> full record</a>
+						 	<a class="btn" href="/profile/<%=h profile.id %>/edit"><i class="icon-list-alt"></i> full record</a>
 						 	<a class="btn profileDestroy" href='#' rel="<%=h profile.id%>"><i class="icon-remove"></i> destroy</a>
 						</div>
 					</td>
@@ -73,7 +73,16 @@
 	$('.showBadge').click(
 		function() {
 			var id = $(this).attr('rel');
-			$('#qrcode').qrcode({width: 64, height: 64, text: "http://medcode.me/profile/" + id + "/show"});
+			$('#qrcode').qrcode({width: 64, height: 64, text: "http://medcode.me/profile/" + id + "/edit"});
+			$.ajax({
+				type: 'get',
+				url: '/profile/' + id + '/show',
+				context: $('.container'),
+				dataType: 'html',
+				success: function(data) {
+					$('#qrcode').prepend(data);
+				}
+			});
 		});
 	$('.close').click(
 		function() {$('#qrcode').html("")});

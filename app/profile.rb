@@ -3,14 +3,16 @@ get '/profile/new' do
 	erb :profile_new
 end
 
-get '/profile/edit' do
+get '/profile/:id/edit' do
   @title = "Edit Profile"
+  @profile = Profile.get(params[:id].to_i)
   erb :profile_edit
 end
 
 get '/profile/:id/show' do
   @title = "Profile #{params[:id]}"
-  erb :profile_show
+  @profile = Profile.get(params[:id].to_i)
+  erb :profile_show, :layout => false
 end
 
 post '/profile/create' do
@@ -33,7 +35,19 @@ post '/profile/create' do
 end
 
 post '/profile/:id/update' do
-	profile = Profile.get(params[:id])
+	profile = Profile.get(params[:id].to_i)
+	profile.first_name = params[:firstName]
+    profile.last_name = params[:lastName]
+    profile.dob = params[:dob]
+    profile.blood_type = params[:bloodType]
+    profile.contact_first = params[:contactFirst]
+    profile.contact_last = params[:contact_last]
+    profile.contact_number_1 = params[:contactNumber1]
+    profile.medical_history = params[:medicalHistory]
+    profile.allergies = params[:allergies]
+    profile.medical_notes = params[:medical_notes]
+    profile.updated_at = Time.now
+    profile.save
 end
 
 post '/profile/:id/destroy' do

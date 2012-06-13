@@ -24,8 +24,7 @@
   <div class="container header">
     <div class="row">
       <div class="span8">
-          <p><a id="logOut" class="btn btn-inverse" href="#">Log Out</a></p>
-          <h1 class="headerTitle"><%=h @title %></h1>
+        <h1 class="headerTitle">&nbsp;<%=h @title %></h1>
       </div>
         <div class="span4">
           <div class="pull-right logo">
@@ -38,7 +37,10 @@
   <%= yield %>
   <div class="container footer">
     <div class="row">
-      <div class="span12 footer">
+      <div class="span2 offset10 right">
+        <br>
+        <a id="logOut" href="#">Log Out&nbsp;&nbsp;</a>
+           
       </div>
     </div>
   </div>

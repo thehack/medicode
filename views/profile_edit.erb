@@ -1,1 +1,122 @@
-edit profile
+<style type="text/css">
+</style>
+<br>
+<div class="container">
+	<div class="row">
+		<div class="span12">
+			<div class="alert alert-error">
+				This is for demonstration only. Please do not enter any factual personal details.
+				<a class="close" data-dismiss="alert">×</a>	
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="span8">
+			<div class="row">
+				<div class="span2">
+					<div class="mug">
+						<br>
+						UPLOAD IMAGE</div>
+				</div>
+				<div class="span2 inputlabel">
+					First Name<br><br>LastName<br><br>D.O.B
+				</div>
+				<div class="span4">
+					<input id="firstName" name="firstName" type="text" value="<%=h @profile.first_name%>"></input>
+					<br>
+					<br>
+					<input id="lastName" name="lastName" type="text" value="<%=h @profile.last_name %>"></input>
+					<br>
+					<br>
+					<input id="dob" name="dob" type="text" value="<%=h @profile.dob %>"></input>
+					<br>
+					<br>
+					<div class="btn-group" >
+					  <a class="btn dropdown-toggle outline" data-toggle="dropdown" href="#">
+					  	<input id="bloodBox" width="10" type="text" value="<%=h @profile.blood_type %>" /> Blood Type
+					    <span class="caret"></span>
+					  </a>
+					  <ul class="dropdown-menu">
+					    <li><a class="bloodType" href="#">A1+</a></li>
+					    <li><a class="bloodType" href="#">A1B-</a></li> 
+					    <li><a class="bloodType" href="#">A1B+</a></li> 
+					    <li><a class="bloodType" href="#">A2+</a></li> 
+					    <li><a class="bloodType" href="#">A2-</a></li> 
+					    <li><a class="bloodType" href="#">A2B+</a></li> 
+					    <li><a class="bloodType" href="#">A2B-</a></li> 
+					    <li><a class="bloodType" href="#">B-</a></li> 
+					    <li><a class="bloodType" href="#">B+</a></li> 
+					    <li><a class="bloodType" href="#">O+</a></li> 
+					    <li><a class="bloodType" href="#">O-</a></li>
+					  </ul>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="span4 labelAbove">
+					<br>
+					<h4>EMERGENCY CONTACT</h4>
+					<br>
+					<p>CONTACT FIRST NAME</p>
+					<input id="contactFirst" name="contactFirst" value="<%=h @profile.contact_first %>" type="text" ></input>
+					<p>CONTACT NUMBER 1</p>
+					<input id="contactNumer1" name="contactNumber1" type="text" value="<%=h @profile.contact_number_1 %>"></input>
+					<p>MEDICAL HISTORY</p>
+					<textarea id="medicalHistory" name="medicalHistory"><%=h @profile.medical_history %></textarea>
+				</div>
+				<div class="span4 labelAbove">
+					<br>
+					<br>
+					<br>
+					<p>CONTACT LAST NAME</p>
+					<input id="contactLast" name="contactLast" type="text" value="<%=h @profile.contact_last %>"></input>
+					<p>CONTACT NUMBER 2</p>
+					<input id="contactNumber2" name="contactNumber2" type="text" value="<%=h @profile.contact_number_2 %>"></input>
+					<br>
+					<p>ALLERGIES</p>
+					<textarea id="allergies" name="allergies"><%=h @profile.allergies %></textarea>		
+				</div>
+			</div>
+		</div>
+		<div class="span4">
+			<div class="grey outline eso">
+				<h2><center>EMERGENCY SERVICES ONLY</center></h2>
+				<textarea id="uploadImages" class="bigBox">Upload Images
+				</textarea>
+				<textarea id="medicalNotes" class="bigBox">Medical Notes
+				</textarea>
+			</div>
+			<br>
+			<div class="btn-group pull-right">
+				<a id="save" class="btn btn-primary btn-large" href="#">Update Record</a>
+			</div>
+		</div>
+	</div>
+</div>
+<br>
+<script type="text/javascript">
+$('.bloodType').click(
+	function() {
+		$('#bloodBox').val($(this).text());
+	});
+		$('#save').click( function() {
+			$.ajax({
+			  type: 'POST',
+			  url: '/profile/' + <%=h @profile.id %> + '/update',
+			  data: {	firstName: $('#firstName').val(), 
+						lastName: $('#lastName').val(),
+						dob: $('#dob').val(),
+						bloodType: $('#bloodBox').val(),
+						contactFirst: $('#contactFirst').val(),
+						contactLast: $('#contactLast').val(),
+						contactNumber1: $('#contactNumber1').val(),
+						contactNumber2: $('#contactNumber2').val(),
+						medicalHistory: $('#medicalHistory').val(),
+						allergies: $('#allergies').val(),
+						medicalNotes: $('#medicalNotes').val()
+					},
+			  complete: function() {window.location='/admin';}
+			});
+
+		});
+</script>
