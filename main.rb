@@ -1,5 +1,5 @@
 require 'sinatra'
-require 'datamapper'
+require 'data_mapper'
 require 'digest/sha1' 
 require 'sinatra/flash' #for flash-based sessions
 
